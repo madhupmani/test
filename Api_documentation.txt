@@ -1,0 +1,31 @@
+//Create country
+Post : /country
+Body : {"name" : "india"}
+Response : {"id":1,"name" : "India" }
+
+//Get Country
+Post : /country/{id}
+Response : {"id":1,"name" : "India" }
+
+
+//Create League
+Post : /league
+Body : {"name" : "league"}
+Response : {"id":1,"name" : "league" }
+
+//Get League
+Post : /league/{id}
+Response : {"id":1,"name" : "league" }
+
+
+//Create Team
+Post : /team
+Body : {"name" : "team"}
+Response : {"id":1,"name" : "team" }
+
+//Get League
+Post : /team/{id}
+Response : {"id":1,"name" : "team" }
+
+
+//Handling All Error Code

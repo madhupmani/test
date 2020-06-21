@@ -19,7 +19,7 @@ import com.sapient.interview.football.service.TeamService;
 
 //@CrossOrigin
 @RestController
-@RequestMapping("/country")
+@RequestMapping("/team")
 public class TeamController {	
 	
 	@Autowired
