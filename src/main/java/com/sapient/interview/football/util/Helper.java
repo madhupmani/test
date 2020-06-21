@@ -1,9 +1,10 @@
 package com.sapient.interview.football.util;
-//import com.sapient.interview.football.common.message.MessageParser;
 import com.sapient.interview.football.entity.CountryEntity;
-import com.sapient.interview.football.exception.ResourceUnavailableException;
-import com.sapient.interview.football.exception.ServiceUnavailableException;
+import com.sapient.interview.football.entity.LeagueEntity;
+import com.sapient.interview.football.entity.TeamEntity;
 import com.sapient.interview.football.output.dto.CountryOutputDto;
+import com.sapient.interview.football.output.dto.LeagueOutputDto;
+import com.sapient.interview.football.output.dto.TeamOutputDto;
 
 public class Helper {
 	
@@ -13,24 +14,14 @@ public class Helper {
 		CountryOutputDto countryOutputDto = new CountryOutputDto(country.getId(),country.getName());
 		return countryOutputDto;
 	}
-	
-	public static RuntimeException customException(Class exceptionClass, String exceptionMessage) {
-		try {
-			RuntimeException ex = (RuntimeException) exceptionClass.getDeclaredConstructor(String.class).newInstance(exceptionMessage);			
-			return ex;
-		} catch (Exception e) {
-			return new ServiceUnavailableException(e.getMessage());
-		}
+	public static LeagueOutputDto parseLeagueToLeagueDetails(LeagueEntity league) {		
+		LeagueOutputDto leagueOutputDto = new LeagueOutputDto(league.getId(),league.getName());
+		return leagueOutputDto;
 	}
 	
-	/*
-	public static RuntimeException resourceNotExistingException(String exceptionMessage) {
-		try {
-			RuntimeException ex = new ResourceUnavailableException(	MessageParser.getMessage(exceptionMessage));
-			return ex;
-		}catch (Exception e) {
-			return new ServiceUnavailableException(e.getMessage());
-		}
-		
-	} */
+	public static TeamOutputDto parseTeamToTeamDetails(TeamEntity team) {		
+		TeamOutputDto teamOutputDto = new TeamOutputDto(team.getId(),team.getName());
+		return teamOutputDto;
+	}
+	
 }

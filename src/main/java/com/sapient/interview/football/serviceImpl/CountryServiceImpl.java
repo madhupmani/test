@@ -23,6 +23,7 @@ public class CountryServiceImpl implements CountryService{
 	private CountryRepository countryrepository;
 	
 	@Transactional
+	@Override
 	public CountryOutputDto createCountry(CountryCreateInputDto countryCreateInputDto) {		
 		try {
 			boolean isCountryNameExist = countryrepository.existsByName(countryCreateInputDto.getName());
@@ -42,11 +43,12 @@ public class CountryServiceImpl implements CountryService{
 		
 	}
 	
+	@Override
 	public CountryOutputDto getCountry(int countryId) {
 		try {
 			Optional<CountryEntity> countryOptional = countryrepository.findById(countryId) ;		
 			if (!countryOptional.isPresent()) {			
-				throw new ResourceUnavailableException("County Id "+ countryId  + " not found" ) ;
+				throw new ResourceUnavailableException("ounty Id "+ countryId  + " not found" ) ;
 			}
 			
 			CountryEntity country = countryOptional.get();
